@@ -1,0 +1,128 @@
+body {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-family: "Rubik Pixels", system-ui;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 100px;
+}
+
+#ranking {
+    margin-top: 10px;
+    text-align: left;
+    display: inline-block;
+    background-color: black;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color: white;
+    font-size: 100px;
+}
+
+#ranking h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+#ranking ol {
+    padding-left: 150px;
+}
+
+#startButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+#startButton:hover {
+    background-color: #45a049;
+}
+
+#popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1000;
+}
+
+#popupContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#meter {
+    width: 300px;
+    height: 60px;
+    margin: 20px auto;
+    background-color: #f0f0f0;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+#level {
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s, background-color 0.1s;
+    position: absolute;
+    left: 0;
+}
+
+#dbValue {
+    position: absolute;
+    width: 100%;
+    line-height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    mix-blend-mode: difference;
+}
+
+#countdown {
+    font-size: 48px;
+    margin: 20px 0;
+}
+
+#highScore {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+#closePopup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}

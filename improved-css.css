@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Rubik+Pixels&display=swap');
+
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #45a049;
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --accent-color: #ff6b6b;
+    --meter-bg-color: #2c2c2c;
+}
+
+body {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 40px;
+    font-family: "Rubik Pixels", system-ui;
+    font-weight: 600;
+    font-style: normal;
+    font-size: clamp(50px, 10vw, 100px);
+    text-shadow: 0 0 10px var(--accent-color);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px var(--accent-color);
+    }
+    to {
+        text-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
+    }
+}
+
+#ranking {
+    margin-top: 20px;
+    text-align: left;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px 50px 30px 70px; /* Increased left padding */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    font-size: clamp(18px, 3vw, 24px); /* Adjusted font size */
+    transition: transform 0.3s ease;
+}
+
+#ranking ol {
+    padding-left: 0; /* Remove default padding */
+    list-style-type: none;
+    counter-reset: ranking;
+}
+
+#ranking li {
+    margin-bottom: 15px;
+    counter-increment: ranking;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#ranking li::before {
+    content: counter(ranking) ".";
+    position: absolute;
+    left: -40px; /* Move number outside the list item */
+    width: 30px;
+    text-align: right;
+    color: var(--accent-color);
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 700;
+    font-size: 1em; /* Adjusted size */
+}
+
+#ranking .user-id {
+    flex-grow: 1;
+    margin-right: 10px;
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 90px); /* Ensure space for score */
+}
+
+#ranking .score {
+    font-family: "Rubik Pixels", system-ui;
+    font-size: 1.1em; /* Slightly larger than user-id */
+    color: var(--accent-color);
+    min-width: 80px;
+    text-align: right;
+}
+
+
+
+#startButton {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 100px; /* Increased from 80px */
+    height: 100px; /* Increased from 80px */
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    font-size: 40px; /* Increased from 32px */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#startButton:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+#popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+#popupContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--background-color);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    max-width: 90%;
+    width: 400px;
+}
+
+#meter {
+    width: 100%;
+    height: 60px;
+    margin: 20px auto;
+    background-color: var(--meter-bg-color);
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#level {
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s, background-color 0.1s;
+    position: absolute;
+    left: 0;
+    background-image: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+#dbValue {
+    position: absolute;
+    width: 100%;
+    line-height: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#countdown {
+    font-size: 64px;
+    margin: 20px 0;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+#highScore {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+#closePopup {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 32px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+#closePopup:hover {
+    color: var(--accent-color);
+}
+
+#timer, #micStatus {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+#userId {
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 18px;
+    width: 80%;
+    background-color: var(--meter-bg-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--text-color);
+}
+
+#start {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#start:hover {
+    background-color: var(--secondary-color);
+}
+
+#start:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    #ranking {
+        padding: 20px;
+        font-size: clamp(18px, 4vw, 24px);
+    }
+
+    #startButton {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+
+    #popupContent {
+        padding: 20px;
+    }
+
+    #countdown {
+        font-size: 48px;
+    }
+
+    #highScore {
+        font-size: 24px;
+    }
+}

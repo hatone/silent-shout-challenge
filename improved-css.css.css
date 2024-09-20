@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Rubik+Pixels&family=Roboto+Mono:wght@400;700&display=swap');
+
+/* ... (previous CSS remains unchanged) ... */
+
+#ranking ol {
+    padding-left: 30px;
+    list-style-type: none;
+    counter-reset: ranking;
+}
+
+#ranking li {
+    margin-bottom: 10px;
+    counter-increment: ranking;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#ranking li::before {
+    content: counter(ranking) ".";
+    position: absolute;
+    left: -30px;
+    color: var(--accent-color);
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+#ranking .user-id {
+    margin-right: 10px;
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: 600;
+}
+
+#ranking .score {
+    margin-left: auto;
+    font-family: "Rubik Pixels", system-ui;
+    font-size: 1.2em;
+    color: var(--accent-color);
+}
+
+/* ... (rest of the CSS remains unchanged) ... */
