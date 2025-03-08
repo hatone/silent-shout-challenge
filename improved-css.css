@@ -103,8 +103,6 @@ h1 {
     text-align: right;
 }
 
-
-
 #startButton {
     position: fixed;
     bottom: 30px;
@@ -248,6 +246,32 @@ h1 {
     cursor: not-allowed;
 }
 
+/* 白い枠線の部分に「in 未踏会議2025」を表示するスタイル */
+#event-frame {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    max-width: 80%;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+#event-text {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: "Pixelify Sans", sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
 @media (max-width: 768px) {
     body {
         padding: 10px;
@@ -274,5 +298,15 @@ h1 {
 
     #highScore {
         font-size: 24px;
+    }
+
+    #event-frame {
+        width: 300px;
+        height: 40px;
+        bottom: 70px;
+    }
+    
+    #event-text {
+        font-size: 14px;
     }
 }

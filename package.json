@@ -1,0 +1,25 @@
+{
+  "name": "silent-shout-challenge",
+  "version": "1.0.0",
+  "description": "マイクの音量を測定してランキングに参加するウェブアプリケーション",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "audio",
+    "challenge",
+    "ranking",
+    "web-app"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^6.2.1"
+  },
+  "dependencies": {
+    "@vercel/kv": "^1.0.1"
+  }
+}

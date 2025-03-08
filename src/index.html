@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Silent Shout Challenge - マイクの音量を測定してランキングに参加しよう">
+    <title>Silent Shout Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bubblegum+Sans&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="background-image"></div>
+    
+    <div class="container">
+        <div class="left-section">
+            <h1 class="page-title">
+                <span class="title-line mutalk">\mutalk2/</span>
+                <span class="title-line">Silent</span>
+                <span class="title-line">Shout</span>
+                <span class="title-line">Challenge</span>
+            </h1>
+        </div>
+        
+        <div class="right-section">
+            <section id="ranking" class="ranking">
+                <ol id="rankingList" class="ranking__list"></ol>
+            </section>
+        </div>
+    </div>
+    
+    <button id="startButton" aria-label="Start Measurement" class="start-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+            <line x1="12" y1="19" x2="12" y2="23"></line>
+            <line x1="8" y1="23" x2="16" y2="23"></line>
+        </svg>
+        <span>測定開始</span>
+    </button>
+
+    <div id="popup" class="popup">
+        <div id="popupContent" class="popup-content">
+            <span id="closePopup" class="close-popup">&times;</span>
+            <div id="micStatus" class="mic-status">マイク準備完了</div>
+            <input type="text" id="userId" placeholder="ユーザー名を入力" class="user-input">
+            <button id="start" class="start-btn">スタート</button>
+            <div id="countdown" class="countdown"></div>
+            <div id="meter" class="meter">
+                <div id="level" class="level"></div>
+                <div id="dbValue" class="db-value">0 dB</div>
+            </div>
+            <div class="timer-score-container">
+                <div id="timer" class="timer">残り時間: 5秒</div>
+                <div id="highScore" class="high-score">最大: 0 dB</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Silent Shout Challenge</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html> 
