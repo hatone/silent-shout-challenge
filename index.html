@@ -6,13 +6,28 @@
     <title>Silent Shout Battle</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Rubik+Pixels&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bubblegum+Sans&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="improved-css.css">
 </head>
 <body>
-    <h1>Silent Shout Challenge</h1>
-    <div id="ranking">
-        <ol id="rankingList"></ol>
+    <div class="background-image"></div>
+    <div class="container">
+        <div class="left-section">
+            <h1>
+                <span style="font-size: 0.5em; display: block; color: white; text-align: center; margin-bottom: 10px; letter-spacing: 0.2em;">\mutalk2/
+                </span>
+                SILENT SHOUT
+                <span style="display: block;">CHALLENGE</span>
+            </h1>
+        </div>
+        <div class="right-section">
+            <div id="ranking">
+                <ol id="rankingList"></ol>
+                <div class="ranking-controls">
+                    <button id="resetRanking" class="control-button">ランキングをリセット</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <button id="startButton" aria-label="Start Measurement">
@@ -22,25 +37,59 @@
             <line x1="12" y1="19" x2="12" y2="23"></line>
             <line x1="8" y1="23" x2="16" y2="23"></line>
         </svg>
+        <span>START</span>
     </button>
 
     <div id="event-frame">
         <span id="event-text">in 未踏会議2025</span>
     </div>
 
-    <div id="popup">
+    <div id="popup" class="popup-center">
         <div id="popupContent">
             <span id="closePopup">&times;</span>
-            <div id="micStatus">Mic checking...</div>
-            <input type="text" id="userId" placeholder="your twitch id">
+            <div id="micStatus">マイクの準備中...</div>
+            <div id="micSelection">
+                <div class="mic-group">
+                    <label for="micA">外部音:</label>
+                    <select id="micA" class="mic-select"></select>
+                </div>
+                <div class="mic-group">
+                    <label for="micB">mutalk2:</label>
+                    <select id="micB" class="mic-select"></select>
+                </div>
+            </div>
+            <input type="text" id="userId" placeholder="your id">
             <button id="start" disabled>Start</button>
             <div id="countdown"></div>
-            <div id="meter">
-                <div id="level"></div>
-                <div id="dbValue">0.0000 dB</div>
+            
+            <div class="meter-container">
+                <div class="meter-label">外部音:</div>
+                <div id="meterA" class="meter">
+                    <div id="levelA" class="level"></div>
+                    <div id="dbValueA" class="db-value">0.0000 dB</div>
+                </div>
+                <div id="highScoreA" class="high-score">Max: 0.0000 dB</div>
             </div>
-            <div id="timer">Remaining time: 5 sec</div>
-            <div id="highScore">Max: 0.0000 dB</div>
+            
+            <div class="meter-container">
+                <div class="meter-label">mutalk2:</div>
+                <div id="meterB" class="meter">
+                    <div id="levelB" class="level"></div>
+                    <div id="dbValueB" class="db-value">0.0000 dB</div>
+                </div>
+                <div id="highScoreB" class="high-score">Max: 0.0000 dB</div>
+            </div>
+            
+            <div class="meter-container">
+                <div class="meter-label">差分（外部音-mutalk2）:</div>
+                <div id="meterDiff" class="meter">
+                    <div id="levelDiff" class="level"></div>
+                    <div id="dbValueDiff" class="db-value">0.0000 dB</div>
+                </div>
+                <div id="highScoreDiff" class="high-score">Max: 0.0000 dB</div>
+            </div>
+            
+            <div id="timer">残り時間: 5 秒</div>
         </div>
     </div>
 
